@@ -1,0 +1,152 @@
+<!--..........................POM  declarations...............................................................-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
+<!-- 
+	These declarations ensure that the pom.xml file is well-formed and follows the
+correct structure and rules as defined by Maven. It helps tools like Maven
+itself, IDEs, and XML parsers to understand and validate the project
+configuration.
+-->
+
+
+	<!-- This specifies the version of the POM model used -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--.........................................................................................-->
+
+	<!--...........................Project Coordinates ..........................................-->
+
+	<!-- The group ID uniquely identifies the project -->
+	<groupId>OrangeHRMProject</groupId>
+	<!-- The artifact ID is the name of the project -->
+	<artifactId>OrangeHRMProject</artifactId>
+	<!-- The version of the project -->
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!--.............................project name............................................................-->
+	<!-- Project Name -->
+	<name>OrangeHRMProject</name>
+	<!-- Project URL -->
+	<url>https://github.com/username/my-maven-project</url>
+
+
+	<!--....................................properties.....................................................-->
+
+	<!-- Properties for centralized configuration -->
+	<properties>
+		<!-- Default encoding for source files -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	
+   
+</properties>
+	<!--.................................Dependencies........................................................-->
+
+
+	<dependencies>
+		<!-- Selenium Java -->
+
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<!--Automates web browser actions (e.g., clicking buttons, filling forms).
+            Enables cross-browser testing (supports Chrome, Firefox, etc.).
+            Ideal for writing automated functional and regression tests for web applications.-->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.26.0</version>
+		</dependency>
+
+
+		<!-- TestNG (Optional for Testing) -->
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<!--TestNG is a testing framework that helps you write, organize, and run tests.
+             The <dependency> declaration adds TestNG version 7.10.2 to your project for test purposes only, making it available during the test phase of the Maven build lifecycle. -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.10.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- WebDriverManager (Optional for Driver Management) -->
+		<!--The <dependency> you provided adds WebDriverManager version 5.9.2 to your project.
+           It eliminates the need to manually manage and configure browser drivers (like ChromeDriver, GeckoDriver, etc.) in your Selenium tests.
+            This helps make your test scripts more portable and easier to maintain, as WebDriverManager will automatically download the appropriate drivers based on the browser version.		https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.9.2</version>
+		</dependency>
+
+
+		<!-- ExtendReport-->
+		<!--The ExtentReports dependency is used for creating visually rich and detailed test execution reports, enhancing the clarity and professionalism of your test automation projects-->
+	
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.9</version>
+		</dependency>
+
+
+		<!-- common  - io dependancy -->
+		<!--The Commons IO dependency is used for simplifying and enhancing file and stream operations in Java projects. It is especially useful for tasks like file copying, reading, writing, and monitoring, making it a must-have library for projects with significant I/O handling requirements.-->
+			<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.16.1</version>
+		</dependency>
+
+
+	</dependencies>
+	<!--........................................build & Plugins.................................................-->
+	<!-- Compiler plugin configuration -->
+
+	<build>
+
+		<plugins>
+			<!-- Maven Compiler Plugin -->
+			<!-- The Maven Compiler Plugin allows you to configure which version
+			of Java to compile the source code (<source>) and which version of
+			bytecode to generate (<target>).
+                 It ensures that your project compiles with the correct Java version, ensuring
+			compatibility and preventing potential issues when running the code
+			on different Java versions. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				
+				<configuration>
+					<!-- put your configurations here -->
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- Surefire Plugin for running tests -->
+			<!-- The Maven Surefire Plugin is used to run unit tests during the
+			Maven build lifecycle.
+                The configuration you provided specifies that TestNG tests should be executed
+			using the testng.xml suite file.
+                 This allows you to define and manage your TestNG test suite and tests in a
+			centralized way and integrate them into the Maven build process. -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2 </version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+	<!--.........................................................................................-->
+
+
+</project>
